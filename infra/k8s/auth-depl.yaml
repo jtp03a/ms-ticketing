@@ -17,7 +17,7 @@ spec:
       - name: regcred
       containers:
         - name: auth
-          image: registry.gitlab.com/jtp03a/ms-ticketing/auth:latest
+          image: registry.gitlab.com/jpeterson-dev/ms-ticketing/auth:latest
 ---
 apiVersion: v1
 kind: Service
