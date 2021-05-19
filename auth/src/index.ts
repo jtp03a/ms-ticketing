@@ -1,14 +1,19 @@
 import express from 'express'
-
 import { json } from 'body-parser'
+import { currentUserRouter } from './routes/currentuser'
+import { signinRouter } from './routes/signin'
+import { signupRouter } from './routes/signup'
+import { signoutRouter } from './routes/signout'
 
 const app = express()
 
 app.use(json())
+app.use(currentUserRouter)
+app.use(signinRouter)
+app.use(signupRouter)
+app.use(signoutRouter)
 
-app.get('/api/users/currentuser', (req, res) => {
-  res.send('hit current user endpoint')
-})
+
 
 app.listen(3000, () => {
   console.log('Listening on port 3000')
