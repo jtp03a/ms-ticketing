@@ -16,6 +16,10 @@ router.post('/api/users/signup', [
   if(!errors.isEmpty()) {
     return res.status(400).send(errors.array())
   }
+
+  const { email, password } = req.body
+
+  res.status(200).send(`Created user with email: ${email}`)
 })
 
 export { router as signupRouter }
