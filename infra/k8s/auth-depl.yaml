@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      imagePullSecrets:
+      - name: regcred
+        - name: auth
+          image: registry.gitlab.com/jtp03a/ms-ticketing/auth:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+spec:
+  selector:
+    app: auth
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
