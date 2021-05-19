@@ -20,4 +20,4 @@ deploy:
     - gcloud container clusters get-credentials jakek8s --zone=us-central1-c
     - kubectl apply -f ./infra/k8s/auth-depl.yaml
     - kubectl rollout restart deployment auth-depl -n default
-    - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
+    # - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
