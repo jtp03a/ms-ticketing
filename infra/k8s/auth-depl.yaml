@@ -13,9 +13,9 @@ spec:
       labels:
         app: auth
     spec:
-      containers:
       imagePullSecrets:
       - name: regcred
+      containers:
         - name: auth
           image: registry.gitlab.com/jtp03a/ms-ticketing/auth:latest
 ---
