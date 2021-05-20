@@ -16,7 +16,9 @@
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.11.1",
     "mongoose": "5.10.19",
-    "ts-node-dev": "^1.1.6",
+    "ts-node-dev": "^1.1.6"
+  },
+  "devDependencies": {
     "typescript": "^4.2.4"
   }
 }
