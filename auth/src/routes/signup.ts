@@ -35,4 +35,4 @@ async (req: Request, res: Response) => {
   res.status(201).send(user)
 })
 
-export { router as signupRouter }
+export { router as signupRouter } 
