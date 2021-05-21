@@ -18,6 +18,12 @@ spec:
       containers:
         - name: auth
           image: registry.gitlab.com/jpeterson-dev/ms-ticketing/auth:latest
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secrets
+                  key: jwt_secret
 ---
 apiVersion: v1
 kind: Service

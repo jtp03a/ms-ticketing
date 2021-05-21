@@ -38,7 +38,9 @@ async (req: Request, res: Response) => {
   const userJwt = jwt.sign({
     id: user.id,
     email: user.email
-  }, 'testkey1234')
+  }, 
+    process.env.JWT_KEY!
+  )
 
   //Store it on session object
   req.session = {
