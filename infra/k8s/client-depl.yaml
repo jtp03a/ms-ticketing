@@ -30,5 +30,5 @@ spec:
   ports:
     - name: ms-client
       protocol: TCP
-      port: 3000
+      port: 3001
       targetPort: 3000
