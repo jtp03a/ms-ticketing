@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-client-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-client
+  template:
+    metadata:
+      labels:
+        app: ms-client
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+        - name: ms-client
+          image: registry.gitlab.com/jpeterson-dev/ms-ticketing/client:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-client-srv
+  namespace: default
+spec:
+  selector:
+    app: ms-client
+  ports:
+    - name: ms-client
+      protocol: TCP
+      port: 3000
+      targetPort: 3001

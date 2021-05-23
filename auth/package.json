@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "test": "jest --watchAll --no-cache --coverage"
+    "test": "jest --forceExit --detectOpenHandles --no-cache --coverage"
   },
   "jest": {
     "preset": "ts-jest",

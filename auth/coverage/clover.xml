@@ -1,177 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621723888279" clover="3.2.0">
-  <project timestamp="1621723888279" name="All files">
-    <metrics statements="169" coveredstatements="147" conditionals="32" coveredconditionals="13" methods="33" coveredmethods="23" elements="234" coveredelements="183" complexity="0" loc="169" ncloc="169" packages="6" files="16" classes="16"/>
+<coverage generated="1621769635983" clover="3.2.0">
+  <project timestamp="1621769635983" name="All files">
+    <metrics statements="168" coveredstatements="167" conditionals="32" coveredconditionals="23" methods="33" coveredmethods="33" elements="233" coveredelements="223" complexity="0" loc="168" ncloc="168" packages="6" files="16" classes="16"/>
     <package name="src">
-      <metrics statements="22" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="app.ts" path="/config/workspace/ms-ticketing/auth/src/app.ts">
-        <metrics statements="22" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
+        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.errors">
-      <metrics statements="39" coveredstatements="31" conditionals="10" coveredconditionals="3" methods="15" coveredmethods="11"/>
+      <metrics statements="39" coveredstatements="39" conditionals="10" coveredconditionals="5" methods="15" coveredmethods="15"/>
       <file name="bad-request-error.ts" path="/config/workspace/ms-ticketing/auth/src/errors/bad-request-error.ts">
         <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
         <line num="7" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="10" count="3" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
       </file>
       <file name="custom-error.ts" path="/config/workspace/ms-ticketing/auth/src/errors/custom-error.ts">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="5" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="6" count="7" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="5" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
       </file>
       <file name="not-authorized-error.ts" path="/config/workspace/ms-ticketing/auth/src/errors/not-authorized-error.ts">
-        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
       </file>
       <file name="not-found-error.ts" path="/config/workspace/ms-ticketing/auth/src/errors/not-found-error.ts">
-        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
       </file>
       <file name="request-validation-error.ts" path="/config/workspace/ms-ticketing/auth/src/errors/request-validation-error.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
         <line num="8" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="11" count="4" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.middlewares">
-      <metrics statements="25" coveredstatements="15" conditionals="12" coveredconditionals="3" methods="4" coveredmethods="2"/>
+      <metrics statements="25" coveredstatements="24" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="4"/>
       <file name="current-user.ts" path="/config/workspace/ms-ticketing/auth/src/middlewares/current-user.ts">
-        <metrics statements="8" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="6"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="5" falsecount="1"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
       </file>
       <file name="error-handler.ts" path="/config/workspace/ms-ticketing/auth/src/middlewares/error-handler.ts">
         <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="6" count="7" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="9" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
       </file>
       <file name="require-auth.ts" path="/config/workspace/ms-ticketing/auth/src/middlewares/require-auth.ts">
-        <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
       </file>
       <file name="validate-request.ts" path="/config/workspace/ms-ticketing/auth/src/middlewares/validate-request.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="10" count="13" type="stmt"/>
-        <line num="12" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="12" count="15" type="cond" truecount="2" falsecount="0"/>
         <line num="13" count="4" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
       </file>
     </package>
     <package name="src.models">
       <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
       <file name="user.ts" path="/config/workspace/ms-ticketing/auth/src/models/user.ts">
         <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="34" count="6" type="stmt"/>
-        <line num="35" count="6" type="stmt"/>
-        <line num="36" count="6" type="stmt"/>
-        <line num="37" count="6" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="44" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="5" type="stmt"/>
-        <line num="46" count="5" type="stmt"/>
-        <line num="48" count="5" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="52" count="5" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="34" count="8" type="stmt"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+        <line num="37" count="8" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="7" type="stmt"/>
+        <line num="46" count="7" type="stmt"/>
+        <line num="48" count="7" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="52" count="7" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="57" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.routes">
-      <metrics statements="54" coveredstatements="51" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="4"/>
+      <metrics statements="53" coveredstatements="53" conditionals="8" coveredconditionals="7" methods="6" coveredmethods="6"/>
       <file name="currentuser.ts" path="/config/workspace/ms-ticketing/auth/src/routes/currentuser.ts">
-        <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="11" count="2" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="5" type="stmt"/>
       </file>
       <file name="signin.ts" path="/config/workspace/ms-ticketing/auth/src/routes/signin.ts">
         <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
         <line num="21" count="3" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
         <line num="24" count="3" type="stmt"/>
@@ -183,58 +183,57 @@
         <line num="37" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
+        <line num="52" count="5" type="stmt"/>
       </file>
       <file name="signout.ts" path="/config/workspace/ms-ticketing/auth/src/routes/signout.ts">
-        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
       </file>
       <file name="signup.ts" path="/config/workspace/ms-ticketing/auth/src/routes/signup.ts">
-        <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-        <line num="20" count="6" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
-        <line num="24" count="6" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="24" count="8" type="cond" truecount="2" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="29" count="5" type="stmt"/>
-        <line num="31" count="10" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-        <line num="42" count="5" type="stmt"/>
-        <line num="46" count="5" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="30" count="14" type="stmt"/>
+        <line num="33" count="7" type="stmt"/>
+        <line num="41" count="7" type="stmt"/>
+        <line num="45" count="7" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.utilities">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="password-utils.ts" path="/config/workspace/ms-ticketing/auth/src/utilities/password-utils.ts">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
       </file>
     </package>
   </project>
