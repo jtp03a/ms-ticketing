@@ -11,6 +11,12 @@ build:
     # Build Next Client
     - /kaniko/executor --context $CI_PROJECT_DIR/client --dockerfile $CI_PROJECT_DIR/client/Dockerfile --destination $CI_REGISTRY_IMAGE/client:latest
 
+scan:
+  stage: test
+  image: anchore/grype
+  script:
+    - grype registry.gitlab.com/jpeterson-dev/ms-ticketing/auth:latest
+
 #For deployment on GCP cluster
 deploy:
   stage: deploy
