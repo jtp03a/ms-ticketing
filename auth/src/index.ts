@@ -1,11 +1,14 @@
 import mongoose from 'mongoose'
 import { app } from './app'
+import cors from 'cors'
 
 
 const start = async () => {
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined')
   }
+
+  app.use(cors());
   
   try {
     await mongoose.connect('mongodb://auth-mongo-srv:27017/auth', {
