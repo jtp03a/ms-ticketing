@@ -2,8 +2,12 @@ import axios from 'axios'
 
 const LandingPage = ({ currentUser }) => {
   console.log(currentUser)
-
-  axios.get('/api/users/currentuser')
+  try {
+    axios.get('/api/users/currentuser')
+  } catch (error) {
+    
+  }
+  
   return <h1>LandingPage</h1>
 }
 
