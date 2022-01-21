@@ -1,5 +1,4 @@
 import axios from 'axios'
-<<<<<<< HEAD
 
 const LandingPage = ({ color }) => {
   console.log('I am in the component', color)
@@ -13,8 +12,6 @@ LandingPage.getInitialProps = ()=> {
 const Index = () => {
   return (<h1>Landing Page</h1>)
 }
-=======
->>>>>>> 500232cdf842598d16e361a2e34e58cb85ae590e
 
 const LandingPage = ({ currentUser }) => {
   console.log(currentUser)

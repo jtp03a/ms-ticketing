@@ -17,9 +17,9 @@ spec:
       - name: regcred
       containers:
         - name: auth
-          image: registry.gitlab.com/jpeterson-dev/ms-ticketing/auth:latest
+          image: registry.jakepeterson.dev/ms-ticketing/auth:latest
           env:
-            - name: JWT_KEY
+            - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: jwt-secrets
