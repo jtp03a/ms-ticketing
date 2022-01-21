@@ -35,5 +35,5 @@ deploy:
   script:
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/client-depl.yaml
-    - kubectl rollout restart deployment ms-client-depl -n default
+    - kubectl apply -f ./infra/k8s/auth-depl.yaml
+    - kubectl rollout restart deployment auth-depl -n default
