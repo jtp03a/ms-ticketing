@@ -19,7 +19,7 @@ spec:
         - name: auth
           image: registry.jakepeterson.dev/jtp03a/ms-ticketing/auth:latest
           env:
-            - name: JWT_SECRET
+            - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
                   name: jwt-secrets
