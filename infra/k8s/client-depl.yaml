@@ -7,11 +7,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: client
+      app: ms-client
   template:
     metadata:
       labels:
-        app: client
+        app: ms-client
     spec:
       imagePullSecrets:
       - name: regcred
@@ -26,9 +26,9 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: client
+    app: ms-client
   ports:
-    - name: client
+    - name: ms-client
       protocol: TCP
       port: 3001
       targetPort: 3000
