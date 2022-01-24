@@ -5,24 +5,24 @@ const LandingPage = ({ color }) => {
   return <h1>LandingPage</h1>
 }
 
-LandingPage.getInitialProps = ()=> {
-  console.log
-}
+// LandingPage.getInitialProps = ()=> {
+//   console.log
+// }
  
-const Index = () => {
-  return (<h1>Landing Page</h1>)
-}
+// const Index = () => {
+//   return (<h1>Landing Page</h1>)
+// }
 
-const LandingPage = ({ currentUser }) => {
-  console.log(currentUser)
-  try {
-    axios.get('/api/users/currentuser')
-  } catch (error) {
+// const LandingPage = ({ currentUser }) => {
+//   console.log(currentUser)
+//   try {
+//     axios.get('/api/users/currentuser')
+//   } catch (error) {
     
-  }
+//   }
   
-  return <h1>LandingPage</h1>
-}
+//   return <h1>LandingPage</h1>
+// }
 
 // LandingPage.getInitialProps = async () => {
 //   try {
