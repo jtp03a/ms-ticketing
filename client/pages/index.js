@@ -1,37 +1,14 @@
 import axios from 'axios'
 
 const LandingPage = ({ color }) => {
-  console.log('I am in the component', color)
+  console.log(currentUser)
   return <h1>LandingPage</h1>
 }
 
-// LandingPage.getInitialProps = ()=> {
-//   console.log
-// }
- 
-// const Index = () => {
-//   return (<h1>Landing Page</h1>)
-// }
+LandingPage.getInitialProps = async () => {
+  const response = await axios.get('https://ms-ticketing.jakepeterson.dev/api/users/currentuser')
 
-// const LandingPage = ({ currentUser }) => {
-//   console.log(currentUser)
-//   try {
-//     axios.get('/api/users/currentuser')
-//   } catch (error) {
-    
-//   }
-  
-//   return <h1>LandingPage</h1>
-// }
-
-// LandingPage.getInitialProps = async () => {
-//   try {
-//     const response = await axios.get('/api/users/currentuser')
-
-//     return response.data
-//   } catch (err) {
-    
-//   }
-// }
+  return response.data
+}
  
 export default LandingPage
