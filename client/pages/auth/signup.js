@@ -7,7 +7,7 @@ const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { doRequest, errors} = useRequest({
-    url: 'https://ticketing.jakepeterson.dev/api/users/signup',
+    url: 'https://ms-ticketing.jakepeterson.dev/api/users/signup',
     method: 'post',
     body: {
       email,
