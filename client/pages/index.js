@@ -6,7 +6,7 @@ const LandingPage = ({ response }) => {
 }
 
 LandingPage.getInitialProps = async () => {
-  const response = await axios.get('http://ingress-nginx.ingress-nginx.svc.cluster.local/api/users/currentuser')
+  const response = await axios.get('http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser')
 
   return response.data
 }
