@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const LandingPage = ({ response }) => {
-  console.log(response)
+const LandingPage = ({ currentUser }) => {
+  console.log(currentUser)
   return <h1>LandingPage</h1>
 }
 
