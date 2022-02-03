@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import BuildClient from '../api/build-client'
-import App from 'next/app'
+import Header from '../components/header'
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return ( 
   <div>
-    <h1>Header {currentUser.email}</h1>
+    <Header />
     <Component {...pageProps} />
   </div>
   )}
@@ -20,8 +20,6 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
       pageProps = await appContext.Component.getInitialProps(appContext.ctx)
     }
   
-    console.log('I am the custom app component', data)
-
     return {
       pageProps,
       ...data
