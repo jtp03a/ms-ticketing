@@ -4,7 +4,7 @@ import BuildClient from '../api/build-client'
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return ( 
   <div>
-    <h1>Header {currentUser.email}</h1>
+    <h1>Header</h1>
     <Component {...pageProps} />
   </div>
   )}
