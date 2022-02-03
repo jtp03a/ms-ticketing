@@ -5,7 +5,7 @@ import App from 'next/app'
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return ( 
   <div>
-    <h1>Header</h1>
+    <h1>Header {currentUser.email}</h1>
     <Component {...pageProps} />
   </div>
   )}
