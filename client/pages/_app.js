@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import BuildClient from '../api/build-client'
+import App from 'next/app'
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return ( 
@@ -10,6 +11,7 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
   )}
 
   AppComponent.getInitialProps = async (appContext) => {
+    console.log(Object.keys(appContext))
     const client = BuildClient(appContext.ctx)
     const { data } = client.get('/api/users/currentuser')
     
