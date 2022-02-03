@@ -20,6 +20,7 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
     if (appContext.Component.getInitialProps) {
       pageProps = await appContext.Component.getInitialProps(appContext.ctx)
     }
+    console.log(pageProps)
   
     console.log('I am the custom app component', data)
 
