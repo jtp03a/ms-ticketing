@@ -9,7 +9,7 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
   </div>
   )}
 
-  AppComponent.getInitialProps = (appContext) => {
+  AppComponent.getInitialProps = async (appContext) => {
     const client = BuildClient(appContext.ctx)
     const { data } = client.get('/api/users/currentuser')
     
