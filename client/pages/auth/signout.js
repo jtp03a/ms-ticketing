@@ -1,4 +1,4 @@
-import { Router } from 'next/router'
+import Router from 'next/router'
 import { useEffect } from 'react'
 import useRequest from '../../hooks/use-request'
 
