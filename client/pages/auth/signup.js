@@ -19,7 +19,7 @@ const Signup = () => {
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    doRequest()
+    await doRequest()
   }
 
   return (
