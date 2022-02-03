@@ -7,7 +7,7 @@ const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { doRequest, errors} = useRequest({
-    url: 'https://ms-ticketing.jakepeterson.dev/api/users/signup',
+    url: '/api/users/signup',
     method: 'post',
     body: {
       email,
@@ -19,7 +19,7 @@ const Signup = () => {
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    // doRequest()
+    doRequest()
   }
 
   return (
