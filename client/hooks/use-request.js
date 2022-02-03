@@ -16,10 +16,9 @@ const useRequest = ({ url, method, body, onSuccess }) => {
       setErrors(
         <div className="alert alert-danger">
           <h4>Oooops...</h4>
-          {JSON.stringify(err)}
-          {/* <ul className="my-0" >
-            {err.response.data.errors.map(error => <li key={error.message}>{error.message}</li>)}
-          </ul> */}
+          <ul className="my-0" >
+            {err.response.data.errors.map(error => (<li key={error.message}>{error.message}</li>))}
+          </ul>
         </div>
       )
     }
