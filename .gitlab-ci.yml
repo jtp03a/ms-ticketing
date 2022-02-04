@@ -30,6 +30,20 @@ build-client:
     changes:
       - client/**/*
 
+build-tickets:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: ['']
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    # Build Next Client
+    - /kaniko/executor --context $CI_PROJECT_DIR/tickets --dockerfile $CI_PROJECT_DIR/tickets/Dockerfile --destination $CI_REGISTRY_IMAGE/tickets:latest
+  only:
+    changes:
+      - tickets/**/*
+
 # #For deployment on GCP cluster
 # deploy:
 #   stage: deploy
@@ -72,6 +86,19 @@ deploy-client:
   only:
     changes:
       - client/**/*
+    
+deploy-tickets:
+  stage: deploy
+  image:
+    name: jtp03a/kubectl
+  script:
+    - mkdir ~/.kube
+    - echo $kube_config | base64 -d > ~/.kube/config
+    - kubectl apply -f ./infra/k8s/tickets-depl.yaml
+    - kubectl rollout restart deployment tickets-depl -n default
+  only:
+    changes:
+      - tickets/**/*
 
 deploy-infra:
   stage: deploy

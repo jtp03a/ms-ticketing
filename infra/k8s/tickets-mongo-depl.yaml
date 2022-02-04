@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tickets-mongo-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tickets-mongo
+  template:
+    metadata:
+      labels:
+        app: tickets-mongo
+    spec:
+      volumes:
+      - name: tickets-mongo-storage
+        persistentVolumeClaim:
+          claimName: tickets-mongo
+      containers:
+        - name: tickets-mongo
+          image: mongo
+          volumeMounts:
+          - name: tickets-mongo-storage
+            mountPath: /data/db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tickets-mongo-srv
+  namespace: default
+spec:
+  selector:
+    app: tickets-mongo
+  ports:
+    - name: tickets-mongo
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+---      
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tickets-mongo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
