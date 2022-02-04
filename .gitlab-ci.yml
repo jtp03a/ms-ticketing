@@ -12,6 +12,9 @@ build-auth:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     # Build Auth Service
     - /kaniko/executor --context $CI_PROJECT_DIR/auth --dockerfile $CI_PROJECT_DIR/auth/Dockerfile --destination $CI_REGISTRY_IMAGE/auth:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
+  -only:
+    changes:
+      - /auth/**/*
 
 build-client:
   stage: build
@@ -23,6 +26,9 @@ build-client:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     # Build Next Client
     - /kaniko/executor --context $CI_PROJECT_DIR/client --dockerfile $CI_PROJECT_DIR/client/Dockerfile --destination $CI_REGISTRY_IMAGE/client:latest
+  only:
+    changes:
+      - /client/**/*
 
 # #For deployment on GCP cluster
 # deploy:
