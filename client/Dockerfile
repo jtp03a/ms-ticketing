@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:alpine
 
 ARG NPM_TOKEN
 
