@@ -1,11 +1,16 @@
 FROM node:16-alpine
 
+ARG NPM_TOKEN
+
 WORKDIR /app
 
+COPY .npmrc .npmrc
 COPY package.json .
 
-RUN yarn install
+RUN npm install
+
+RUN rm -f .npmrc
 
 COPY . .
 
-CMD ["yarn", "run", "dev"]
+CMD ["npm", "run", "dev"]
