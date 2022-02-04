@@ -47,7 +47,7 @@ build-client:
 #     - kubectl rollout restart deployment ms-client-depl -n default
 #     # - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
 
-deploy:
+deploy-auth:
   stage: deploy
   image:
     name: jtp03a/kubectl
@@ -56,6 +56,32 @@ deploy:
     - echo $kube_config | base64 -d > ~/.kube/config
     - kubectl apply -f ./infra/k8s/auth-depl.yaml
     - kubectl rollout restart deployment auth-depl -n default
-      # Deploy Next Client
+  only:
+    changes:
+      - auth/**/*
+    
+deploy-client:
+  stage: deploy
+  image:
+    name: jtp03a/kubectl
+  script:
+    - mkdir ~/.kube
+    - echo $kube_config | base64 -d > ~/.kube/config
     - kubectl apply -f ./infra/k8s/client-depl.yaml
     - kubectl rollout restart deployment ms-client-depl -n default
+  only:
+    changes:
+      - client/**/*
+
+deploy-infra:
+  stage: deploy
+  image:
+    name: jtp03a/kubectl
+  script:
+    - mkdir ~/.kube
+    - echo $kube_config | base64 -d > ~/.kube/config
+    - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
+    - kubectl rollout restart deployment auth-mongo-depl -n default
+  only:
+    changes:
+      - infra/**/*
