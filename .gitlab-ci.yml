@@ -9,7 +9,7 @@ build:
     # Build Auth Service
     - /kaniko/executor --context $CI_PROJECT_DIR/auth --dockerfile $CI_PROJECT_DIR/auth/Dockerfile --destination $CI_REGISTRY_IMAGE/auth:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
     # Build Next Client
-    - /kaniko/executor --context $CI_PROJECT_DIR/client --dockerfile $CI_PROJECT_DIR/client/Dockerfile --destination $CI_REGISTRY_IMAGE/client:latest
+    - /kaniko/executor --context $CI_PROJECT_DIR/client --dockerfile $CI_PROJECT_DIR/client/Dockerfile --destination $CI_REGISTRY_IMAGE/client:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
 
 # #For deployment on GCP cluster
 # deploy:
