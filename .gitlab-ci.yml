@@ -39,7 +39,7 @@ build-tickets:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
     # Build Next Client
-    - /kaniko/executor --context $CI_PROJECT_DIR/tickets --dockerfile $CI_PROJECT_DIR/tickets/Dockerfile --destination $CI_REGISTRY_IMAGE/tickets:latest
+    - /kaniko/executor --context $CI_PROJECT_DIR/tickets --dockerfile $CI_PROJECT_DIR/tickets/Dockerfile --destination $CI_REGISTRY_IMAGE/tickets:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
   only:
     changes:
       - tickets/**/*
@@ -107,8 +107,8 @@ deploy-infra:
   script:
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
-    - kubectl rollout restart deployment auth-mongo-depl -n default
+    - kubectl apply -f ./infra/k8s/tickets-mongo-depl.yaml
+    - kubectl rollout restart deployment tickets-mongo-depl -n default
   only:
     changes:
       - infra/**/*
