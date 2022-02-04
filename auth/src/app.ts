@@ -8,8 +8,8 @@ import { currentUserRouter } from './routes/currentuser'
 import { signinRouter } from './routes/signin'
 import { signupRouter } from './routes/signup'
 import { signoutRouter } from './routes/signout'
-import { errorHandler } from './middlewares/error-handler'
-import { NotFoundError } from './errors/not-found-error'
+import { errorHandler, NotFoundError } from '@jtp03a/common_libs'
+
 
 const app = express()
 app.use((req, res, next) => { next(); }, cors({maxAge: 84600}));
