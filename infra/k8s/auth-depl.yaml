@@ -19,6 +19,8 @@ spec:
         - name: auth
           image: registry.jakepeterson.dev/jtp03a/ms-ticketing/auth:latest
           env:
+            - name: MONGO_URI
+              value: 'mongodb://auth-mongo-srv:27017/auth'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
