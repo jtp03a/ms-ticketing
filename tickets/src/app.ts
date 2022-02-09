@@ -3,7 +3,8 @@ import 'express-async-errors'
 import { json } from 'body-parser'
 import cookieSession from 'cookie-session'
 import cors from 'cors'
-import { errorHandler, NotFoundError } from '@jtp03a/common_libs'
+import { errorHandler, NotFoundError, currentUser } from '@jtp03a/common_libs'
+import { createTicketRouter } from './routes/new'
 
 
 const app = express()
@@ -14,6 +15,9 @@ app.use(cookieSession({
   signed: false,
   secure: process.env.NODE_ENV !== 'test'
 }))
+app.use(currentUser)
+
+app.use(createTicketRouter)
 
 app.all('*', async (req, res) => {
   throw new NotFoundError()
