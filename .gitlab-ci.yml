@@ -100,15 +100,14 @@ deploy-tickets:
     changes:
       - tickets/**/*
 
-# deploy-infra:
-#   stage: deploy
-#   image:
-#     name: jtp03a/kubectl
-#   script:
-#     - mkdir ~/.kube
-#     - echo $kube_config | base64 -d > ~/.kube/config
-#     - kubectl apply -f ./infra/k8s/tickets-mongo-depl.yaml
-#     - kubectl rollout restart deployment tickets-mongo-depl -n default
-#   only:
-#     changes:
-#       - infra/**/*
+deploy-infra:
+  stage: deploy
+  image:
+    name: jtp03a/kubectl
+  script:
+    - mkdir ~/.kube
+    - echo $kube_config | base64 -d > ~/.kube/config
+    - kubectl apply -f ./infra/k8s/nats-depl.yaml
+  only:
+    changes:
+      - infra/**/*
