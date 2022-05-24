@@ -28,7 +28,7 @@ spec:
             '-hbf',
             '2',
             '-SD',
-            'cid',
+            '-cid',
             'ticketing'
           ]
 ---
