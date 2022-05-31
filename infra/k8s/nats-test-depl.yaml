@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nats-test-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nats-test
+  template:
+    metadata:
+      labels:
+        app: nats-test
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+        - name: nats-test
+          image: registry.jakepeterson.dev/jtp03a/ms-ticketing/nats-test:latest

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tickets-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tickets
+  template:
+    metadata:
+      labels:
+        app: tickets
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+        - name: tickets
+          image: registry.jakepeterson.dev/jtp03a/ms-ticketing/tickets:latest
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://tickets-mongo-srv:27017/tickets'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secrets
+                  key: jwt_secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tickets-srv
+  namespace: default
+spec:
+  selector:
+    app: tickets
+  ports:
+    - name: tickets
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
