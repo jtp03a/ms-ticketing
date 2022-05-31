@@ -44,6 +44,20 @@ build-tickets:
     changes:
       - tickets/**/*
 
+build-nats-test:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: ['']
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    # Build Next Client
+    - /kaniko/executor --context $CI_PROJECT_DIR/nats-test --dockerfile $CI_PROJECT_DIR/nats-test/Dockerfile --destination $CI_REGISTRY_IMAGE/nats-test:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
+  only:
+    changes:
+      - nats-test/**/*
+
 # #For deployment on GCP cluster
 # deploy:
 #   stage: deploy
@@ -100,14 +114,27 @@ deploy-tickets:
     changes:
       - tickets/**/*
 
-deploy-infra:
+deploy-nats-test:
   stage: deploy
   image:
     name: jtp03a/kubectl
   script:
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/nats-depl.yaml
+    - kubectl apply -f ./infra/k8s/nats-test-depl.yaml
+    - kubectl rollout restart deployment nats-test-depl -n default
   only:
     changes:
-      - infra/**/*
+      - tickets/**/*
+
+# deploy-infra:
+#   stage: deploy
+#   image:
+#     name: jtp03a/kubectl
+#   script:
+#     - mkdir ~/.kube
+#     - echo $kube_config | base64 -d > ~/.kube/config
+#     - kubectl apply -f ./infra/k8s/nats-depl.yaml
+#   only:
+#     changes:
+#       - infra/**/*
