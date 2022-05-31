@@ -125,7 +125,7 @@ deploy-nats-test:
     - kubectl rollout restart deployment nats-test-depl -n default
   only:
     changes:
-      - tickets/**/*
+      - nats-test/**/*
 
 # deploy-infra:
 #   stage: deploy
