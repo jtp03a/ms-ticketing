@@ -8,11 +8,10 @@ skaffold:
   image: 
     name: gcr.io/k8s-skaffold/skaffold:latest
   script:
-    - echo $CI_JOB_TOKEN
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - NPM_TOKEN="$CI_JOB_TOKEN"
-    - echo $NPM_TOKEN
+    - export NPM_TOKEN=$CI_JOB_TOKEN
+    - skaffold run
 
 # build-auth:
 #   stage: build
