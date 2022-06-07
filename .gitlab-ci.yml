@@ -1,151 +1,152 @@
 stages: 
-  - build
-  - deploy
-  # - skaffold
+  # - build
+  # - deploy
+  - skaffold
 
-# skaffold:
-#   stage: skaffold
-#   image: 
-#     name: gcr.io/k8s-skaffold/skaffold:latest
+skaffold:
+  stage: skaffold
+  image: 
+    name: gcr.io/k8s-skaffold/skaffold:latest
+  script:
+    - mkdir ~/.kube
+    - echo $kube_config | base64 -d > ~/.kube/config
+    - docker login registry.jakepeterson.dev -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker login gitlab.jakepeterson.dev -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - NPM_TOKEN="$NPM_TOKEN" skaffold run
+
+# build-auth:
+#   stage: build
+#   image:
+#     name: gcr.io/kaniko-project/executor:debug
+#     entrypoint: ['']
+#   script:
+#     - mkdir -p /kaniko/.docker
+#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#     # Build Auth Service
+#     - /kaniko/executor --context $CI_PROJECT_DIR/auth --dockerfile $CI_PROJECT_DIR/auth/Dockerfile --destination $CI_REGISTRY_IMAGE/auth:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
+#   only:
+#     changes:
+#       - auth/**/*
+
+# build-client:
+#   stage: build
+#   image:
+#     name: gcr.io/kaniko-project/executor:debug
+#     entrypoint: ['']
+#   script:
+#     - mkdir -p /kaniko/.docker
+#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#     # Build Next Client
+#     - /kaniko/executor --context $CI_PROJECT_DIR/client --dockerfile $CI_PROJECT_DIR/client/Dockerfile --destination $CI_REGISTRY_IMAGE/client:latest
+#   only:
+#     changes:
+#       - client/**/*
+
+# build-tickets:
+#   stage: build
+#   image:
+#     name: gcr.io/kaniko-project/executor:debug
+#     entrypoint: ['']
+#   script:
+#     - mkdir -p /kaniko/.docker
+#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#     # Build Next Client
+#     - /kaniko/executor --context $CI_PROJECT_DIR/tickets --dockerfile $CI_PROJECT_DIR/tickets/Dockerfile --destination $CI_REGISTRY_IMAGE/tickets:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
+#   only:
+#     changes:
+#       - tickets/**/*
+
+# build-nats-test:
+#   stage: build
+#   image:
+#     name: gcr.io/kaniko-project/executor:debug
+#     entrypoint: ['']
+#   script:
+#     - mkdir -p /kaniko/.docker
+#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#     # Build Next Client
+#     - /kaniko/executor --context $CI_PROJECT_DIR/nats-test --dockerfile $CI_PROJECT_DIR/nats-test/Dockerfile --destination $CI_REGISTRY_IMAGE/nats-test:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
+#   only:
+#     changes:
+#       - nats-test/**/*
+
+# # #For deployment on GCP cluster
+# # deploy:
+# #   stage: deploy
+# #   image: google/cloud-sdk
+# #   script:
+# #     - echo $GCP_SERVICE_KEY > gcloud-service-key.json
+# #     - gcloud auth activate-service-account --key-file gcloud-service-key.json
+# #     - gcloud config set project $GCP_PROJECT_ID
+# #     - gcloud container clusters get-credentials jakek8s --zone=us-central1-c
+# #     #  Deploy Auth Service
+# #     - kubectl apply -f ./infra/k8s/auth-depl.yaml
+# #     - kubectl rollout restart deployment auth-depl -n default
+# #     # Deploy Next Client
+# #     - kubectl apply -f ./infra/k8s/client-depl.yaml
+# #     - kubectl rollout restart deployment ms-client-depl -n default
+# #     # - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
+
+# deploy-auth:
+#   stage: deploy
+#   image:
+#     name: jtp03a/kubectl
 #   script:
 #     - mkdir ~/.kube
 #     - echo $kube_config | base64 -d > ~/.kube/config
-#     - docker login registry.jakepeterson.dev -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-#     - NPM_TOKEN="$NPM_TOKEN" skaffold run
-
-build-auth:
-  stage: build
-  image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: ['']
-  script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    # Build Auth Service
-    - /kaniko/executor --context $CI_PROJECT_DIR/auth --dockerfile $CI_PROJECT_DIR/auth/Dockerfile --destination $CI_REGISTRY_IMAGE/auth:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
-  only:
-    changes:
-      - auth/**/*
-
-build-client:
-  stage: build
-  image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: ['']
-  script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    # Build Next Client
-    - /kaniko/executor --context $CI_PROJECT_DIR/client --dockerfile $CI_PROJECT_DIR/client/Dockerfile --destination $CI_REGISTRY_IMAGE/client:latest
-  only:
-    changes:
-      - client/**/*
-
-build-tickets:
-  stage: build
-  image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: ['']
-  script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    # Build Next Client
-    - /kaniko/executor --context $CI_PROJECT_DIR/tickets --dockerfile $CI_PROJECT_DIR/tickets/Dockerfile --destination $CI_REGISTRY_IMAGE/tickets:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
-  only:
-    changes:
-      - tickets/**/*
-
-build-nats-test:
-  stage: build
-  image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: ['']
-  script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    # Build Next Client
-    - /kaniko/executor --context $CI_PROJECT_DIR/nats-test --dockerfile $CI_PROJECT_DIR/nats-test/Dockerfile --destination $CI_REGISTRY_IMAGE/nats-test:latest --build-arg NPM_TOKEN=$CI_JOB_TOKEN
-  only:
-    changes:
-      - nats-test/**/*
-
-# #For deployment on GCP cluster
-# deploy:
-#   stage: deploy
-#   image: google/cloud-sdk
-#   script:
-#     - echo $GCP_SERVICE_KEY > gcloud-service-key.json
-#     - gcloud auth activate-service-account --key-file gcloud-service-key.json
-#     - gcloud config set project $GCP_PROJECT_ID
-#     - gcloud container clusters get-credentials jakek8s --zone=us-central1-c
-#     #  Deploy Auth Service
 #     - kubectl apply -f ./infra/k8s/auth-depl.yaml
 #     - kubectl rollout restart deployment auth-depl -n default
-#     # Deploy Next Client
+#   only:
+#     changes:
+#       - auth/**/*
+    
+# deploy-client:
+#   stage: deploy
+#   image:
+#     name: jtp03a/kubectl
+#   script:
+#     - mkdir ~/.kube
+#     - echo $kube_config | base64 -d > ~/.kube/config
 #     - kubectl apply -f ./infra/k8s/client-depl.yaml
 #     - kubectl rollout restart deployment ms-client-depl -n default
-#     # - kubectl apply -f ./infra/k8s/auth-mongo-depl.yaml
-
-deploy-auth:
-  stage: deploy
-  image:
-    name: jtp03a/kubectl
-  script:
-    - mkdir ~/.kube
-    - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/auth-depl.yaml
-    - kubectl rollout restart deployment auth-depl -n default
-  only:
-    changes:
-      - auth/**/*
+#   only:
+#     changes:
+#       - client/**/*
     
-deploy-client:
-  stage: deploy
-  image:
-    name: jtp03a/kubectl
-  script:
-    - mkdir ~/.kube
-    - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/client-depl.yaml
-    - kubectl rollout restart deployment ms-client-depl -n default
-  only:
-    changes:
-      - client/**/*
-    
-deploy-tickets:
-  stage: deploy
-  image:
-    name: jtp03a/kubectl
-  script:
-    - mkdir ~/.kube
-    - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/tickets-depl.yaml
-    - kubectl rollout restart deployment tickets-depl -n default
-  only:
-    changes:
-      - tickets/**/*
+# deploy-tickets:
+#   stage: deploy
+#   image:
+#     name: jtp03a/kubectl
+#   script:
+#     - mkdir ~/.kube
+#     - echo $kube_config | base64 -d > ~/.kube/config
+#     - kubectl apply -f ./infra/k8s/tickets-depl.yaml
+#     - kubectl rollout restart deployment tickets-depl -n default
+#   only:
+#     changes:
+#       - tickets/**/*
 
-deploy-nats-test:
-  stage: deploy
-  image:
-    name: jtp03a/kubectl
-  script:
-    - mkdir ~/.kube
-    - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/nats-test-depl.yaml
-    - kubectl rollout restart deployment nats-test-depl -n default
-  only:
-    changes:
-      - nats-test/**/*
+# deploy-nats-test:
+#   stage: deploy
+#   image:
+#     name: jtp03a/kubectl
+#   script:
+#     - mkdir ~/.kube
+#     - echo $kube_config | base64 -d > ~/.kube/config
+#     - kubectl apply -f ./infra/k8s/nats-test-depl.yaml
+#     - kubectl rollout restart deployment nats-test-depl -n default
+#   only:
+#     changes:
+#       - nats-test/**/*
 
-deploy-infra:
-  stage: deploy
-  image:
-    name: jtp03a/kubectl
-  script:
-    - mkdir ~/.kube
-    - echo $kube_config | base64 -d > ~/.kube/config
-    - kubectl apply -f ./infra/k8s/nats-depl.yaml
-  only:
-    changes:
-      - infra/**/*
+# deploy-infra:
+#   stage: deploy
+#   image:
+#     name: jtp03a/kubectl
+#   script:
+#     - mkdir ~/.kube
+#     - echo $kube_config | base64 -d > ~/.kube/config
+#     - kubectl apply -f ./infra/k8s/nats-depl.yaml
+#   only:
+#     changes:
+#       - infra/**/*
