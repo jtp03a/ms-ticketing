@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM registry.jakepeterson.dev/jpetersondev/dependency_proxy/containers/node:alpine
 
 ARG NPM_TOKEN
 

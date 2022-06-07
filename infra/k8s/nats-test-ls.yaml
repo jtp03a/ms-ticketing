@@ -17,5 +17,5 @@ spec:
       - name: regcred
       containers:
         - name: nats-listener
-          image: registry.jakepeterson.dev/jtp03a/ms-ticketing/nats-test:latest
+          image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/nats-test:latest
           command: ["npm", "run", "listen"]

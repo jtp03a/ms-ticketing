@@ -17,7 +17,7 @@ spec:
       - name: regcred
       containers:
         - name: tickets
-          image: registry.jakepeterson.dev/jtp03a/ms-ticketing/tickets:latest
+          image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/tickets:latest
           env:
             - name: MONGO_URI
               value: 'mongodb://tickets-mongo-srv:27017/tickets'

@@ -6,7 +6,7 @@ deploy:
       - ./infra/k8s/*
 build:
   artifacts:
-    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/client
+    - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/client
       context: client
       kaniko:
         cache: {}
@@ -14,7 +14,7 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/auth
+    - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/auth
       context: auth
       kaniko:
         buildArgs: 
@@ -24,7 +24,7 @@ build:
         manual:
           - src: '**/src/*.ts'
             dest: .
-    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/tickets
+    - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/tickets
       context: tickets
       kaniko:
         buildArgs: 
@@ -34,7 +34,7 @@ build:
         manual:
           - src: '**/src/*.ts'
             dest: .
-    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/nats-test
+    - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/nats-test
       context: nats-test
       kaniko:
         buildArgs: 

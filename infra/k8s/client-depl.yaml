@@ -17,7 +17,7 @@ spec:
       - name: regcred
       containers:
         - name: ms-client
-          image: registry.jakepeterson.dev/jtp03a/ms-ticketing/client:latest
+          image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/client:latest
 ---
 apiVersion: v1
 kind: Service
