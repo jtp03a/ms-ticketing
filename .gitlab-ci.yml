@@ -10,8 +10,7 @@ skaffold:
   script:
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - docker login registry.jakepeterson.dev -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - NPM_TOKEN="$NPM_TOKEN" skaffold run
 
 # build-auth:
