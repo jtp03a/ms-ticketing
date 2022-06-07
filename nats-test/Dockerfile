@@ -1,7 +1,5 @@
 FROM node:alpine
 
-ARG NPM_TOKEN
-
 WORKDIR /app
 
 COPY package.json .
