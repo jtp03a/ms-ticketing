@@ -8,6 +8,7 @@ skaffold:
   image: 
     name: gcr.io/k8s-skaffold/skaffold:latest
   script:
+    - echo $kube_config | base64 -d > ~/.kube/config
     - skaffold run
 
 # build-auth:
