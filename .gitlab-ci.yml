@@ -1,14 +1,14 @@
-# stages: 
-#   # - build
-#   # - deploy
-#   - skaffold
+stages: 
+  # - build
+  # - deploy
+  - skaffold
 
-# skaffold:
-#   stage: skaffold
-#   image: 
-#     name: gcr.io/k8s-skaffold/skaffold:latest
-#   script:
-#     - 
+skaffold:
+  stage: skaffold
+  image: 
+    name: gcr.io/k8s-skaffold/skaffold:latest
+  script:
+    - skaffold run
 
 # build-auth:
 #   stage: build
