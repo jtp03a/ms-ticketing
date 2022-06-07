@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { requireAuth, validateRequest } from '@jtp03a/common_libs'
+import { requireAuth, validateRequest } from '@jpetersondev/common_libs'
 import { body } from 'express-validator'
 import { Ticket } from '../models/ticket'
 

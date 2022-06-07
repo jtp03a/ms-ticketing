@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jtp03a/common_libs": "^1.0.3",
+    "@jpetersondev/common_libs": "^1.0.13",
     "@types/cookie-session": "^2.0.42",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",

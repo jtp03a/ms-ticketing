@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
 import { body } from 'express-validator'
-import { validateRequest, BadRequestError } from '@jtp03a/common_libs'
+import { validateRequest, BadRequestError } from '@jpetersondev/common_libs'
 import { User } from '../models/user'
 import { PasswordUtils } from '../utilities/password-utils'
 import jwt from 'jsonwebtoken'

@@ -1,5 +1,5 @@
 import express from 'express'
-import { currentUser } from '@jtp03a/common_libs'
+import { currentUser } from '@jpetersondev/common_libs'
 
 const router = express.Router()
 

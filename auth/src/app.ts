@@ -8,7 +8,7 @@ import { currentUserRouter } from './routes/currentuser'
 import { signinRouter } from './routes/signin'
 import { signupRouter } from './routes/signup'
 import { signoutRouter } from './routes/signout'
-import { errorHandler, NotFoundError } from '@jtp03a/common_libs'
+import { errorHandler, NotFoundError } from '@jpetersondev/common_libs'
 
 
 const app = express()

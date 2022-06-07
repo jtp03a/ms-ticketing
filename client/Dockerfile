@@ -1,4 +1,4 @@
-FROM registry.jakepeterson.dev/jpetersondev/dependency_proxy/containers/node:16-alpine
+FROM gitlab.jakepeterson.dev/jpetersondev/dependency_proxy/containers/node:16-alpine
 
 WORKDIR /app
 

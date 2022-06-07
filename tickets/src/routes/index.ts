@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { NotFoundError } from '@jtp03a/common_libs'
+import { NotFoundError } from '@jpetersondev/common_libs'
 import { Ticket } from '../models/ticket'
 
 const router = express.Router()
