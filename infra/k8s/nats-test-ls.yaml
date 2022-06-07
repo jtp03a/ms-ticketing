@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nats-test-depl
+  name: nats-test-ls-depl
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nats-test
+      app: nats-test-ls
   template:
     metadata:
       labels:
-        app: nats-test
+        app: nats-test-ls
     spec:
       imagePullSecrets:
       - name: regcred
       containers:
-        - name: nats-test
+        - name: nats-listener
           image: registry.jakepeterson.dev/jtp03a/ms-ticketing/nats-test:latest
+          command: ["npm", "run", "listen"]

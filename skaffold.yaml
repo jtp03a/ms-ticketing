@@ -1,0 +1,51 @@
+apiVersion: skaffold/v2beta5
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  artifacts:
+    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/client
+      context: client
+      kaniko:
+        cache: {}
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/auth
+      context: auth
+      kaniko:
+        buildArgs: 
+          NPM_TOKEN: "{{.NPM_TOKEN}}"
+        cache: {}
+      sync:
+        manual:
+          - src: '**/src/*.ts'
+            dest: .
+    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/tickets
+      context: tickets
+      kaniko:
+        buildArgs: 
+          NPM_TOKEN: "{{.NPM_TOKEN}}"
+        cache: {}
+      sync:
+        manual:
+          - src: '**/src/*.ts'
+            dest: .
+    - image: registry.jakepeterson.dev/jtp03a/ms-ticketing/nats-test
+      context: nats-test
+      kaniko:
+        buildArgs: 
+          NPM_TOKEN: "{{.NPM_TOKEN}}"
+        cache: {}
+      sync:
+        manual:
+          - src: '**/src/*.ts'
+            dest: .
+  cluster:
+    pullSecretName: kaniko-secret
+    dockerConfig:
+      secretName: docker-cfg
+    namespace: default
