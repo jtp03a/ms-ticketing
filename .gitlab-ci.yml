@@ -10,7 +10,7 @@ skaffold:
   script:
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - NPM_TOKEN="$NPM_TOKEN" skaffold run
+    - NPM_TOKEN="$NPM_TOKEN" NPM_REGISTRY="$NPM_REGISTRY" skaffold run
 
 # build-auth:
 #   stage: build
