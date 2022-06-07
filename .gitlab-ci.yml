@@ -10,7 +10,7 @@ skaffold:
   script:
     - mkdir ~/.kube
     - echo $kube_config | base64 -d > ~/.kube/config
-    - skaffold run
+    - NPM_TOKEN=$CI_JOB_TOKEN skaffold run
 
 # build-auth:
 #   stage: build
