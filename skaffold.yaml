@@ -47,5 +47,5 @@ build:
   cluster:
     pullSecretName: kaniko-secret
     dockerConfig:
-      secretName: docker-cfg
+      secretName: regcred
     namespace: default
