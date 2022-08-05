@@ -34,18 +34,20 @@ build:
         manual:
           - src: '**/src/*.ts'
             dest: .
-    - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/nats-test
-      context: nats-test
-      kaniko:
-        buildArgs: 
-          NPM_TOKEN: "{{.NPM_TOKEN}}"
-        cache: {}
-      sync:
-        manual:
-          - src: '**/src/*.ts'
-            dest: .
+    # - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/nats-test
+    #   context: nats-test
+    #   kaniko:
+    #     buildArgs: 
+    #       NPM_TOKEN: "{{.NPM_TOKEN}}"
+    #     cache: {}
+    #   sync:
+    #     manual:
+    #       - src: '**/src/*.ts'
+    #         dest: .
   cluster:
+    # create kubernetes secret called kaniko-secret with kaniko secret and add the  name of the Kubernetes secret for pulling base images and pushing the final image. If given, the secret needs to contain the Google Cloud service account secret key under the key kaniko-secret.
     pullSecretName: kaniko-secret
+    # Note that the Kubernetes secret must not be of type kubernetes.io/dockerconfigjson which stores the config json under the key ".dockerconfigjson", but an opaque secret with the key "config.json"
     dockerConfig:
-      secretName: regcred
+      secretName: docker-cfg
     namespace: default

@@ -5,14 +5,12 @@ import request from 'supertest'
 import jwt from 'jsonwebtoken'
 
 declare global {
-  namespace NodeJS {
-    interface Global {
-      signin(): string[]
-    }
+    var signin: () => string[]
   }
-}
 
 let mongo: any
+
+jest.mock('../nats-wrapper')
 
 beforeAll(async () => {
   process.env.JWT_KEY = 'secret123'
@@ -27,6 +25,7 @@ beforeAll(async () => {
 })
 
 beforeEach(async () => {
+  jest.clearAllMocks()
   const collections = await mongoose.connection.db.collections()
 
   for (let collection of collections) {
