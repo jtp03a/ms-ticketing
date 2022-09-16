@@ -34,6 +34,16 @@ build:
         manual:
           - src: '**/src/*.ts'
             dest: .
+    - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/orders
+      context: orders
+      kaniko:
+        buildArgs: 
+          NPM_TOKEN: "{{.NPM_TOKEN}}"
+        cache: {}
+      sync:
+        manual:
+          - src: '**/src/*.ts'
+            dest: .
     # - image: registry.jakepeterson.dev/jpetersondev/ms-ticketing/nats-test
     #   context: nats-test
     #   kaniko:
