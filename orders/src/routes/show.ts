@@ -4,7 +4,7 @@ import express, { Request, Response } from 'express'
 
 const router = express.Router()
 
-router.get('/api/orders/:id', async (req: Request, res: Response) => {
+router.get('/api/orders/:orderId', async (req: Request, res: Response) => {
   // const ticket = await Ticket.findById(req.params.id)
 
   // if (!ticket) {

@@ -7,7 +7,7 @@ import express, { Request, Response } from 'express'
 
 const router = express.Router()
 
-router.delete('/api/orders/:id', async (req: Request, res: Response) => {
+router.delete('/api/orders/:orderId', async (req: Request, res: Response) => {
   // const { title, price } = req.body
 
   // const ticket = await Ticket.findById(req.params.id)
