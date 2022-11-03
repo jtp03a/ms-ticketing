@@ -1,18 +1,20 @@
 import express, { Request, Response } from 'express'
-// import { NotFoundError } from '@jpetersondev/common_libs'
-// import { Ticket } from '../models/ticket'
+import { NotAuthorizedError, NotFoundError, requireAuth } from '@jpetersondev/common_libs'
+import { Order } from '../models/order'
 
 const router = express.Router()
 
-router.get('/api/orders/:orderId', async (req: Request, res: Response) => {
-  // const ticket = await Ticket.findById(req.params.id)
+router.get('/api/orders/:id', requireAuth, async (req: Request, res: Response) => {
+  const order = await Order.findById(req.params.id).populate('ticket')
 
-  // if (!ticket) {
-  //   throw new NotFoundError()
-  // }
+  if (!order) {
+    throw new NotFoundError()
+  }
+  if (order.userId !== req.currentUser!.id) {
+    throw new NotAuthorizedError()
+  }
 
-  // res.send(ticket)
-  res.send('Test: get order by id route')
+  res.send(order)
 })
 
 export { router as getOrderRouter }

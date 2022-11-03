@@ -4,18 +4,20 @@ import { BadRequestError, NotFoundError, OrderStatus, requireAuth, validateReque
 import { body } from 'express-validator'
 import { Ticket } from '../models/ticket'
 import { Order } from '../models/order'
-// import { TicketCreatedPublisher } from '../events/publishers/ticket-created-publisher'
-// import { natsWrapper } from '../nats-wrapper'
 
 const router = express.Router()
 
-router.post('/api/orders', requireAuth, [
-  body('ticket')
+const EXPIRATION_WINDOW_SECONDS = 15 * 60
+
+router.post('/api/orders', 
+requireAuth, [
+  body('ticketId')
     .not()
     .isEmpty()
     .custom((input: string) => mongoose.Types.ObjectId.isValid(input))
     .withMessage('TicketId must be provided')
-], validateRequest, async (req: Request, res: Response) => {
+], validateRequest, 
+async (req: Request, res: Response) => {
   const { ticketId } = req.body
   // find the ticket the user is trying to order in the database
   const ticket = await Ticket.findById(ticketId)
@@ -32,13 +34,24 @@ router.post('/api/orders', requireAuth, [
   }
 
   // calculate an expiration time for the order, how long it is held to be paid for
+  const expiration = new Date()
+  expiration.setSeconds(expiration.getSeconds() + EXPIRATION_WINDOW_SECONDS)
 
   // build the order and save it to the database
+  const order = Order.build({
+    userId: req.currentUser!.id,
+    status: OrderStatus.Created,
+    expiresAt: expiration,
+    ticket: ticket
+  })
+
+  await order.save()
+
+  res.status(201).send(order)
 
   // publish an event saying that an order was created
 
 
-  res.send('Test: new order route')
 })
 
 export { router as newOrderRouter }
